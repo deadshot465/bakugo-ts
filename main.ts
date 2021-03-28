@@ -28,7 +28,7 @@ let clientId: string | null = null;
 
 function updatePresence() {
     editBotsStatus(StatusTypes.Online, PRESENCES[getRandomNumber(PRESENCES.length)])
-    setTimeout(updatePresence, 20 * 1000);
+    setTimeout(updatePresence, 3600 * 1000);
 }
 
 startBot({
