@@ -1,6 +1,11 @@
 import { Message, MessageContent } from 'https://deno.land/x/discordeno/mod.ts';
 import { config } from 'https://deno.land/x/dotenv/mod.ts';
+import {
+    decode as utf8Decode,
+    encode as utf8Encode,
+} from 'https://deno.land/std@0.95.0/encoding/base64.ts';
 import { BAKUGO_COLOR, TYPESCRIPT_LOGO } from '../shared/constants.ts';
+import { textDecoder } from '../shared/utility.ts';
 import IMessageHandler from '../interfaces/message_handler.ts';
 
 interface JudgeZeroRequestBody {
@@ -37,7 +42,7 @@ const evaluate: IMessageHandler = {
         const authHeader = generateAuthHeader();
         const body: JudgeZeroRequestBody = {
             language_id: TYPESCRIPT_ID,
-            source_code: btoa(actualCode)
+            source_code: utf8Encode(actualCode)
         };
         const response = await createEvalRequest(authHeader, body);
         
@@ -92,7 +97,7 @@ async function getEvalResult(token: string, header: Headers): Promise<JudgeZeroG
     const data: JudgeZeroGetResponse = await response.json();
     
     if (data.stdout !== null && data.stdout !== '') {
-        data.stdout = atob(data.stdout);
+        data.stdout = textDecoder.decode(utf8Decode(data.stdout));
     }
 
     if (data.compile_output !== null && data.compile_output !== '') {

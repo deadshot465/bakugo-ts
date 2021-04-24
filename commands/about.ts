@@ -11,12 +11,12 @@ const about: IMessageHandler = {
             },
             description: 'ザ・ランド・オブ・キュート・ボイズの爆豪勝己。\n \
             爆豪勝己はアニメ・マンガ・ゲーム「[僕のヒーローアカデミア](https://heroaca.com/)」の一人の主人公です。\n \
-            爆豪バージョン0.2の開発者：\n \
+            爆豪バージョン0.2.1の開発者：\n \
             **Tetsuki Syu#1250、Kirito#9286**\n \
             制作言語・フレームワーク：\n \
             [Deno](https://deno.land/)と[Discordeno](https://github.com/discordeno/discordeno)ライブラリ。',
             footer: {
-                text: '爆豪ボット：リリース 0.2 | 2021-04-24'
+                text: '爆豪ボット：リリース 0.2.1 | 2021-04-25'
             },
             thumbnail: {
                 url: TYPESCRIPT_LOGO
