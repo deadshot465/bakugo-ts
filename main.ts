@@ -3,7 +3,8 @@ import {
     Message, editBotsStatus, StatusTypes, getApplicationInformation } from 'https://deno.land/x/discordeno/mod.ts';
 import { config } from 'https://deno.land/x/dotenv/mod.ts';
 import COMMANDS from './commands/index.ts';
-import { PRESENCES, RANDOM_RESPONSES } from './shared/constants.ts';
+import { RANDOM_RESPONSES  } from './commands/response.ts';
+import { PRESENCES } from './shared/constants.ts';
 import { getRandomNumber } from './shared/utility.ts'
 
 
